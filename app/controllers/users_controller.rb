@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to("/posts/index")
     else
-      render("/signup")
+      render("/users/new")
     end
   end
 end
