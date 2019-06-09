@@ -1,0 +1,12 @@
+<h2>釣果投稿一覧</h2>
+<%@posts.each do |post|%>
+  <p><%=post.id%></p>
+  <p><%=post.datetime%></p>
+  <p><%=post.fish_id%></p>
+  <p><%=post.size_millimeter%></p>
+  <p><%=post.weight_gram%></p>
+  <p><%=post.place%></p>
+  <p><%=post.image_name%></p>
+  <p><%=post.method%></p>
+  <p><%=post.user_id%></p>
+<%end%>

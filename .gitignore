@@ -1,4 +1,4 @@
-#Reforence to https://github.com/github/gitignore/blob/master/Rails.gitignore#L2
+#Reforence https://github.com/github/gitignore/blob/master/Rails.gitignore#L2
 
 *.rbc
 capybara-*.html
