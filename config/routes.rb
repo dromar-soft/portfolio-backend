@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  get "/login" => "users#login_form"
-  get "/signup" => "users#new"
+  get "/login"        => "users#login_form"
+  get "/signup"       => "users#new"
+  post "users/create" => "users#create"
 
   get "/posts/index" => "posts#index"
 end
