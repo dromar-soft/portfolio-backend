@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   post "users/create" => "users#create"
 
   get "/posts/index" => "posts#index"
+
+  get "/tests/alert" => "tests#alert"
 end

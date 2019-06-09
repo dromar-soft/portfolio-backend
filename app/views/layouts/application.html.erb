@@ -24,13 +24,16 @@
           <%= link_to "ログイン", "/login", { :class => "navbar-text navbar-right" }  %>
           <%= link_to "新規登録", "/signup", { :class => "navbar-text navbar-right" }  %>
           <%= link_to "釣果一覧", "/posts/index", { :class => "navbar-text navbar-right" }  %>
+          <%= link_to "アラートテスト", "/tests/alert", { :class => "navbar-text navbar-right" }  %>
         </div>
       </div>
     </nav>
     <div class="container">
-      <%= flash[:notice] %>
-    </div>
-    <div class="container">
+      <% if flash[:notice] %>
+        <div class="alert alert-success text-center" role="alert">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
   </body>
