@@ -56,8 +56,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#Install jquery
+# Install jquery
 gem "jquery-rails"
 
 # Install boostrap
 gem 'bootstrap-sass', '>= 3.4.1'
+
+# Install bcrypt
+gem 'bcrypt', '>= 3.1.11'
+
+# For localize error message
+gem 'rails-i18n'

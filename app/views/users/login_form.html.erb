@@ -1,1 +1,14 @@
-ログインフォーム
+<h2>ログインフォーム</h2>
+<%= form_tag('/users/login', method: :post) do %>
+  <% if @error_message != nil %>
+    <div class="alert alert-danger" role="alert">
+      <p><%=@error_message%></p>
+    </div>
+  <% end %>
+  <p>email</p>
+  <input name="email" value="<%=@email%>">
+  <p>password</p>
+  <input type="password" name="password" value="<%=@password%>">
+  <p></p>
+  <input type="submit" value="ログイン">
+<% end %>
