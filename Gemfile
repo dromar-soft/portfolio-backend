@@ -64,3 +64,6 @@ gem 'bootstrap-sass', '>= 3.4.1'
 
 # Install bcrypt
 gem 'bcrypt', '>= 3.1.11'
+
+# For localize error message
+gem 'rails-i18n'
