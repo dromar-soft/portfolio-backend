@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def create
@@ -12,6 +13,7 @@ class UsersController < ApplicationController
     @user.password = params[:password]
     if @user.save
       redirect_to("/posts/index")
+      flash[:notice] = "新規登録完了!"
     else
       render("/users/new")
     end

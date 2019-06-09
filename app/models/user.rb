@@ -4,5 +4,4 @@ class User < ApplicationRecord
   validates_uniqueness_of :name
   validates :email, {presence: true}
   validates_uniqueness_of :email
-  validates :password, {presence: true}
 end
