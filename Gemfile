@@ -67,3 +67,6 @@ gem 'bcrypt', '>= 3.1.11'
 
 # For localize error message
 gem 'rails-i18n'
+
+# Install rspec
+gem 'rspec'
