@@ -7,8 +7,24 @@
       <% end %>
     </div>
   <% end %>
+  <div class="form-group">
+             <div class='input-group date' id='datetimepicker2'>
+                 <input type='text' class="form-control" />
+                 <span class="input-group-addon">
+                     <span class="glyphicon glyphicon-calendar"></span>
+                 </span>
+             </div>
+         </div>
+     </div>
+     <script type="text/javascript">
+         $(function () {
+             $('#datetimepicker2').datetimepicker({
+                 locale: 'ja'
+             });
+         });
+     </script>
   <p>date time</p>
-  <input name="datetime" value="<%=@post.datetime%>">
+  <input type="datetime-local" name="datetime" value="<%=@post.datetime%>">
   <p>fish_id</p>
   <input name="fish_id" value="<%=@post.fish_id%>">
   <p>size_millimeter</p>
