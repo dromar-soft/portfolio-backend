@@ -1,0 +1,26 @@
+<h2>新規投稿</h2>
+<%= form_tag('/posts/create', method: :post) do %>
+  <% if @post.errors.full_messages.count != 0 %>
+    <div class="alert alert-danger" role="alert">
+      <% @post.errors.full_messages.each do |message| %>
+        <p><%=message%></p>
+      <% end %>
+    </div>
+  <% end %>
+  <p>date time</p>
+  <input name="datetime" value="<%=@post.datetime%>">
+  <p>fish_id</p>
+  <input name="fish_id" value="<%=@post.fish_id%>">
+  <p>size_millimeter</p>
+  <input name="size_millimeter" value="<%=@post.size_millimeter%>">
+  <p>weight_gram</p>
+  <input name="weight_gram" value="<%=@post.weight_gram%>">
+  <p>place</p>
+  <input name="place" value="<%=@post.place%>">
+  <p>image_name</p>
+  <input name="image_name" value="<%=@post.image_name%>">
+  <p>method</p>
+  <input name="method" value="<%=@post.method%>">
+  <p></p>
+  <input type="submit" value="新規登録">
+<% end %>
