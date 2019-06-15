@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new()
-    @post.datetime = DateTime.parse(params[:datetime])
+    @post.datetime = datetime_parse_str(params[:datetime])
     @post.fish_id = params[:fish_id].to_i
     @post.size_millimeter = params[:size_millimeter].to_i
     @post.weight_gram = params[:weight_gram].to_i
@@ -25,5 +25,13 @@ class PostsController < ApplicationController
     else
       render("posts/new")
     end
+  end
+
+  def datetime_parse_str(str)
+    if !str.empty?
+     return DateTime.parse(params[:datetime])
+   else
+     return nil
+   end
   end
 end
