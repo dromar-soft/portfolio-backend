@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   def datetime_parse_str(str)
     if !str.empty?
-     return DateTime.parse(params[:datetime])
+     return Time.zone.parse(params[:datetime]) #DateTime.parseだと、config/application.rbのタイムゾーン設定が無視される
    else
      return nil
    end
