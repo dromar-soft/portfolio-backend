@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_09_024126) do
+ActiveRecord::Schema.define(version: 2019_06_16_052100) do
 
   create_table "posts", force: :cascade do |t|
     t.datetime "datetime"
     t.string "fish_id"
-    t.decimal "size_millimeter"
-    t.decimal "weight_gram"
+    t.integer "size_millimeter"
+    t.integer "weight_gram"
     t.string "place"
     t.string "image_name"
     t.string "method"

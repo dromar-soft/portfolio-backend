@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     @post = Post.new()
     @post.datetime = datetime_parse_str(params[:datetime])
     @post.fish_id = params[:fish_id].to_i
-    @post.size_millimeter = params[:size_millimeter].to_i
+    @post.set_size_by_centimeter(params[:size_centimeter].to_f)
     @post.weight_gram = params[:weight_gram].to_i
     @post.place = params[:place]
     @post.image_name = params[:image_name]

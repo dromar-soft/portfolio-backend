@@ -4,4 +4,16 @@ class Post < ApplicationRecord
   validates :place, {presence: true}
   validates :image_name, {presence: true}
   validates :user_id, {presence: true}
+
+  def get_size_by_centimeter
+    if self.size_millimeter
+      return self.size_millimeter / 10
+    else
+      return 0
+    end
+  end
+
+  def set_size_by_centimeter(centimeterValue)
+    self.size_millimeter  = centimeterValue * 10
+  end
 end
