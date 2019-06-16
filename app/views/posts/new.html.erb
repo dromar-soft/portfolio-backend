@@ -39,15 +39,15 @@
     <span class="input-group-addon">魚種</span>
     <span class="input-group-btn">
       <button type="button" class="btn btn-default dropdown-toggle" aria-expanded="false" data-toggle="dropdown"><span class="caret"></span></button>
-      <ul class="dropdown-menu" role="menu" hiddenTag="#hiddenValue" visibleTag="#visibleValue">
+      <ul class="dropdown-menu" role="menu" hiddenTag="#hiddenValue_fish_id" visibleTag="#visibleValue_fish_id">
         <li><a href="javascript:void(0)" id="1" value="ブラックバス">ブラックバス</a></li>
         <li><a href="javascript:void(0)" id="2" value="ブルーギル">ブルーギル</a></li>
         <li><a href="javascript:void(0)" id="3" value="雷魚">雷魚</a></li>
         <li><a href="javascript:void(0)" id="4" value="ビワコオオナマズ">ビワコオオナマズ</a></li>
       </ul>
-      <input name="fish_id" type="hidden" id="hiddenValue" value="<%=@post.fish_id%>">
+      <input name="fish_id" type="hidden" id="hiddenValue_fish_id" value="<%=@post.fish_id%>">
     </span>
-    <input id="visibleValue" class="form-control" readonly="readonly">
+    <input id="visibleValue_fish_id" class="form-control" readonly="readonly">
   </div>
   <br>
   <div class="input-group">
@@ -72,7 +72,17 @@
   <br>
   <div class="input-group">
     <span class="input-group-addon">メソッド</span>
-    <input name="method" class="form-control" value="<%=@post.method%>">
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-default dropdown-toggle" aria-expanded="false" data-toggle="dropdown"><span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu" hiddenTag="#hiddenValue_method" visibleTag="#visibleValue_method">
+        <li><a href="javascript:void(0)" id="1" value="クランクベイト">クランクベイト</a></li>
+        <li><a href="javascript:void(0)" id="2" value="スピナーベイト">スピナーベイト</a></li>
+        <li><a href="javascript:void(0)" id="3" value="ミノー">ミノー</a></li>
+        <li><a href="javascript:void(0)" id="4" value="バイブレーション">バイブレーション</a></li>
+      </ul>
+      <input name="fish_id" type="hidden" id="hiddenValue_method" value="">
+    </span>
+    <input name="method" id="visibleValue_method" class="form-control" value="<%=@post.method%>">
   </div>
   <br>
   <input class="btn btn-default" type="submit" value="投稿">
