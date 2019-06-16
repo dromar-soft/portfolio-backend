@@ -7,36 +7,51 @@
       <% end %>
     </div>
   <% end %>
-  <div class="form-group">
-             <div class='input-group date' id='datetimepicker2'>
-                 <input type='text' class="form-control" />
-                 <span class="input-group-addon">
-                     <span class="glyphicon glyphicon-calendar"></span>
-                 </span>
-             </div>
-         </div>
-     </div>
-     <script type="text/javascript">
-         $(function () {
-             $('#datetimepicker2').datetimepicker({
-                 locale: 'ja'
-             });
+  <script type="text/javascript">
+     $(function () {
+         $('#datetimepicker2').datetimepicker({
+             locale: 'ja'
          });
-     </script>
-  <p>date time</p>
-  <input type="datetime-local" name="datetime" value="<%=@post.datetime%>">
-  <p>fish_id</p>
-  <input name="fish_id" value="<%=@post.fish_id%>">
-  <p>size_millimeter</p>
-  <input name="size_millimeter" value="<%=@post.size_millimeter%>">
-  <p>weight_gram</p>
-  <input name="weight_gram" value="<%=@post.weight_gram%>">
-  <p>place</p>
-  <input name="place" value="<%=@post.place%>">
-  <p>image_name</p>
-  <input name="image_name" value="<%=@post.image_name%>">
-  <p>method</p>
-  <input name="method" value="<%=@post.method%>">
-  <p></p>
-  <input type="submit" value="新規登録">
+     });
+  </script>
+  <div class='input-group date' id='datetimepicker2'>
+    <span class="input-group-addon">釣果日時</span>
+    <input name="datetime" type="text" class="form-control" value="<%=@post.datetime%>">
+    <span class="input-group-addon">
+      <span class="glyphicon glyphicon-calendar"></span>
+    </span>
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">魚種</span>
+    <input name="fish_id" class="form-control" value="<%=@post.fish_id%>">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">サイズ[mm]</span>
+    <input name="size_millimeter" class="form-control" value="<%=@post.size_millimeter%>">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">重量[g]</span>
+    <input name="weight_gram" class="form-control" value="<%=@post.weight_gram%>">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">場所</span>
+    <input name="place" class="form-control" value="<%=@post.place%>">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">画像</span>
+    <input name="image_name" class="form-control" value="<%=@post.image_name%>">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">メソッド</span>
+    <input name="method" class="form-control" value="<%=@post.method%>">
+  </div>
+  <br>
+  <input class="btn btn-default " type="submit" value="投稿">
+
 <% end %>
