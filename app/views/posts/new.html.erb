@@ -1,0 +1,90 @@
+<h2>新規投稿</h2>
+<%= form_tag('/posts/create', method: :post,multipart: true) do %>
+  <% if @post.errors.full_messages.count != 0 %>
+    <div class="alert alert-danger" role="alert">
+      <% @post.errors.full_messages.each do |message| %>
+        <p><%=message%></p>
+      <% end %>
+    </div>
+  <% end %>
+  <script type="text/javascript">
+     $(function () {
+         $('#datetimepicker2').datetimepicker({
+             locale: 'ja'
+         });
+     });
+  </script>
+  <script>
+    $(function(){
+      $('.dropdown-menu a').click(function(){
+        //反映先の要素名を取得
+        var visibleTag = $(this).parents('ul').attr('visibleTag');
+        var hiddenTag = $(this).parents('ul').attr('hiddenTag');
+        //選択された内容でボタンの表示を変える
+        $(visibleTag).val($(this).attr('value'));
+        //選択された内容でhidden項目の値を変える
+        $(hiddenTag).val($(this).attr('id'));
+      })
+    })
+  </script>
+  <div class='input-group date' id='datetimepicker2'>
+    <span class="input-group-addon">釣果日時</span>
+    <input name="datetime" type="text" class="form-control" value="<%=@post.datetime%>">
+    <span class="input-group-addon">
+      <span class="glyphicon glyphicon-calendar"></span>
+    </span>
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon">魚種</span>
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-default dropdown-toggle" aria-expanded="false" data-toggle="dropdown"><span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu" hiddenTag="#hiddenValue_fish_id" visibleTag="#visibleValue_fish_id">
+        <li><a href="javascript:void(0)" id="1" value="ブラックバス">ブラックバス</a></li>
+        <li><a href="javascript:void(0)" id="2" value="ブルーギル">ブルーギル</a></li>
+        <li><a href="javascript:void(0)" id="3" value="雷魚">雷魚</a></li>
+        <li><a href="javascript:void(0)" id="4" value="ビワコオオナマズ">ビワコオオナマズ</a></li>
+      </ul>
+      <input name="fish_id" type="hidden" id="hiddenValue_fish_id" value="<%=@post.fish_id%>">
+    </span>
+    <input id="visibleValue_fish_id" class="form-control" readonly="readonly">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon">サイズ[cm]</span>
+    <input name="size_centimeter" class="form-control" value="<%=@post.get_size_by_centimeter%>">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon">重量[g]</span>
+    <input name="weight_gram" class="form-control" value="<%=@post.weight_gram%>">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon">場所</span>
+    <input name="place" class="form-control" value="<%=@post.place%>">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon">画像</span>
+    <!-- <input name="image_name" class="form-control" value="<%=@post.image_name%>"> -->
+    <input type="file" name="image" class="form-control">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon">メソッド</span>
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-default dropdown-toggle" aria-expanded="false" data-toggle="dropdown"><span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu" hiddenTag="#hiddenValue_method" visibleTag="#visibleValue_method">
+        <li><a href="javascript:void(0)" id="1" value="クランクベイト">クランクベイト</a></li>
+        <li><a href="javascript:void(0)" id="2" value="スピナーベイト">スピナーベイト</a></li>
+        <li><a href="javascript:void(0)" id="3" value="ミノー">ミノー</a></li>
+        <li><a href="javascript:void(0)" id="4" value="バイブレーション">バイブレーション</a></li>
+      </ul>
+      <input name="fish_id" type="hidden" id="hiddenValue_method" value="">
+    </span>
+    <input name="method" id="visibleValue_method" class="form-control" value="<%=@post.method%>">
+  </div>
+  <br>
+  <input class="btn btn-default" type="submit" value="投稿">
+<% end %>
