@@ -1,5 +1,5 @@
 <h2>新規投稿</h2>
-<%= form_tag('/posts/create', method: :post) do %>
+<%= form_tag('/posts/create', method: :post,multipart: true) do %>
   <% if @post.errors.full_messages.count != 0 %>
     <div class="alert alert-danger" role="alert">
       <% @post.errors.full_messages.each do |message| %>
@@ -67,7 +67,8 @@
   <br>
   <div class="input-group">
     <span class="input-group-addon">画像</span>
-    <input name="image_name" class="form-control" value="<%=@post.image_name%>">
+    <!-- <input name="image_name" class="form-control" value="<%=@post.image_name%>"> -->
+    <input type="file" name="image" class="form-control">
   </div>
   <br>
   <div class="input-group">

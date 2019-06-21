@@ -16,7 +16,8 @@ class PostsController < ApplicationController
     @post.set_size_by_centimeter(params[:size_centimeter].to_f)
     @post.weight_gram = params[:weight_gram].to_i
     @post.place = params[:place]
-    @post.image_name = params[:image_name]
+    # @post.image_name = params[:image_name]
+    @post.image = params[:image]
     @post.method = params[:method]
     @post.user_id = @current_user.id
     if @post.save
