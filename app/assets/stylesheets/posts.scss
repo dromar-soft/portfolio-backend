@@ -7,7 +7,7 @@
     text-decoration: none;
   }
   margin-bottom: 20px;
-  padding: 50px 0px;
+  padding: 0px;
   .row {
     margin-top: 20px;
   }
@@ -52,7 +52,7 @@
 }
 
 @media (max-width: 768px) {
-  .index-content .col-lg-4 {
+  .index-content .col-lg-3 {
     margin-top: 20px;
   }
 }
