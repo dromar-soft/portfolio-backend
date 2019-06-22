@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_06_21_022339) do
 
   create_table "posts", force: :cascade do |t|
     t.datetime "datetime"
-    t.string "fish_id"
+    t.integer "fish_id"
     t.integer "size_millimeter"
     t.integer "weight_gram"
     t.string "place"
