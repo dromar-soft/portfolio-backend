@@ -1,12 +1,33 @@
+
 <h2>釣果投稿一覧</h2>
-<%@posts.each do |post|%>
-  <p><%=post.id%></p>
-  <p><%=post.datetime%></p>
-  <p><%=post.fish_id%></p>
-  <p><%=post.size_millimeter%></p>
-  <p><%=post.weight_gram%></p>
-  <p><%=post.place%></p>
-  <p><%=post.image_name%></p>
-  <p><%=post.method%></p>
-  <p><%=post.user_id%></p>
-<%end%>
+<div class="index-content">
+  <%post_count=0%>
+  <%@posts.each do |post|%>
+    <%if post_count % 4 == 0%>
+      <div class="row">
+    <%end%>
+    <div class="col-lg-3">
+      <!-- <div class="card"> <img src="http://gahag.net/img/201608/27s/gahag-0119307464-1.jpg"> -->
+      <div class="card div-link">
+        <img src=<%=post.image_url%>>
+        <p><%=post.fish_id%></p>
+        <p><%=post.datetime%></p>
+        <p><%=post.place%></p>
+        <p><%=post.weight_gram%></p>
+        <p><%=post.place%></p>
+        <p><%=post.image_name%></p>
+        <p><%=post.method%></p>
+        <p><%=post.user_id%></p>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>  -->
+        <a href="blog-ici.html" class="link"></a>
+      </div>
+    </div>
+    <% if post_count % 4 == 3 %>
+      </div>
+    <%end%>
+    <%post_count+=1%>
+  <%end%>
+  <% if post_count % 4 == 0 %>
+    </div>
+  <%end%>
+</div>
