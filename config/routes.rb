@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   post '/users/login'   => 'users#login'
 
   get '/posts/index'    => 'posts#index'
-  get '/posts/:id' => 'posts#detail'
   get '/posts/new' => 'posts#new'
   post '/posts/create' => 'posts#create'
+  get '/posts/:id' => 'posts#detail'
 
   get '/tests/alert' => 'tests#alert'
 end
