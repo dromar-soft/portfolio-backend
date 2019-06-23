@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def detail
     @post = Post.find_by(id: params[:id])
-    redirect_to('posts/index') unless @post
+    redirect_to('/posts/index') unless @post
   end
 
   def new
