@@ -1,0 +1,16 @@
+<h2>魚種追加（管理者向け）</h2>
+<%= form_tag('/fishes/create', method: :post) do %>
+  <% if @fish.errors.full_messages.count != 0 %>
+    <div class="alert alert-danger" role="alert">
+      <% @fish.errors.full_messages.each do |message| %>
+        <p><%=message%></p>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="input-group">
+    <span class="input-group-addon">名前</span>
+    <input name="name" class='form-control' value="<%=@fish.name%>">
+  </div>
+  <br>
+  <input class="btn btn-default" type="submit" value="追加">
+<% end %>
