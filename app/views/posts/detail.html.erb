@@ -1,0 +1,32 @@
+<h2>釣果投稿詳細</h2>
+<div class="index-content">
+  <div class="row">
+    <div class='col-lg-8'>
+      <div class='card'>
+        <img src=<%=@post.image_url%>>
+      </div>
+    </div>
+    <div class='col-lg-4'>
+      <h4>魚種：</h4>
+      <h4><%=@post.fish_id%></h4>
+      <br>
+      <h4>釣行日時：</h4>
+      <h4><%=@post.datetime%></h4>
+      <br>
+      <h4>場所：</h4>
+      <h4><%=@post.place%></h4>
+      <br>
+      <h4>重量：</h4>
+      <h4><%=@post.weight_gram%>g</h4>
+      <br>
+      <h4>サイズ：</h4>
+      <h4><%=@post.size_centimeter%>cm</h4>
+      <br>
+      <h4>メソッド：</h4>
+      <h4><%=@post.method%></h4>
+      <br>
+      <h4>ユーザーID：</h4>
+      <h4><%=@post.user_id%></h4>
+    </div>
+  </div>
+</div>

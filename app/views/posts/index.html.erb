@@ -7,7 +7,6 @@
       <div class="row">
     <%end%>
     <div class="col-lg-3">
-      <!-- <div class="card"> <img src="http://gahag.net/img/201608/27s/gahag-0119307464-1.jpg"> -->
       <div class="card div-link">
         <img src=<%=post.image_url%>>
         <p><%=post.fish_id%></p>
@@ -18,8 +17,7 @@
         <p><%=post.image_name%></p>
         <p><%=post.method%></p>
         <p><%=post.user_id%></p>
-        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>  -->
-        <a href="blog-ici.html" class="link"></a>
+        <%= link_to '', "/posts/#{post.id}", { :class => 'link' , :method => :get} %>
       </div>
     </div>
     <% if post_count % 4 == 3 %>

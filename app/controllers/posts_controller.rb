@@ -8,6 +8,11 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def detail
+    @post = Post.find_by(id: params[:id])
+    redirect_to('/posts/index') unless @post
+  end
+
   def new
     @post = Post.new
   end
