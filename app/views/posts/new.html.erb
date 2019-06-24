@@ -40,10 +40,9 @@
     <span class="input-group-btn">
       <button type="button" class="btn btn-default dropdown-toggle" aria-expanded="false" data-toggle="dropdown"><span class="caret"></span></button>
       <ul class="dropdown-menu" role="menu" hiddenTag="#hiddenValue_fish_id" visibleTag="#visibleValue_fish_id">
-        <li><a href="javascript:void(0)" id="1" value="ブラックバス">ブラックバス</a></li>
-        <li><a href="javascript:void(0)" id="2" value="ブルーギル">ブルーギル</a></li>
-        <li><a href="javascript:void(0)" id="3" value="雷魚">雷魚</a></li>
-        <li><a href="javascript:void(0)" id="4" value="ビワコオオナマズ">ビワコオオナマズ</a></li>
+        <%@fishes.each do |fish|%>
+        <li><a href="javascript:void(0)" id="<%=fish.id%>" value=<%=fish.name%>><%=fish.name%></a></li>
+        <%end%>
       </ul>
       <input name="fish_id" type="hidden" id="hiddenValue_fish_id" value="<%=@post.fish_id%>">
     </span>
@@ -81,7 +80,7 @@
         <li><a href="javascript:void(0)" id="3" value="ミノー">ミノー</a></li>
         <li><a href="javascript:void(0)" id="4" value="バイブレーション">バイブレーション</a></li>
       </ul>
-      <input name="fish_id" type="hidden" id="hiddenValue_method" value="">
+      <input name="method_id" type="hidden" id="hiddenValue_method" value="">
     </span>
     <input name="method" id="visibleValue_method" class="form-control" value="<%=@post.method%>">
   </div>

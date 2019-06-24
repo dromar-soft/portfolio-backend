@@ -14,4 +14,11 @@ class Post < ApplicationRecord
 
     size_millimeter / 10
   end
+
+  def fish_name
+    fish = Fish.find_by(id: fish_id)
+    return '不明' if fish.nil?
+
+    fish.name
+  end
 end

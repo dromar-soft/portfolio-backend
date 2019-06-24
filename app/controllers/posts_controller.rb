@@ -15,10 +15,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @fishes = Fish.all
   end
 
   def create
     @post = Post.new
+    @fishes = Fish.all
     @post.datetime = datetime_parse_str(params[:datetime])
     @post.fish_id = params[:fish_id].to_i
     @post.size_millimeter = params[:size_centimeter].to_f * 10
