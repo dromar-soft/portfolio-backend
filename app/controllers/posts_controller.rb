@@ -5,7 +5,14 @@ require 'time'
 # PostController
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.order('datetime DESC')
+    @fishes = Fish.all
+  end
+
+  def search
+    @posts = Post.where(fish_id: params[:fish_id].to_i).order('datetime DESC')
+    @fishes = Fish.all
+    render('posts/index')
   end
 
   def detail
