@@ -1,0 +1,2 @@
+class LureType < ApplicationRecord
+end
