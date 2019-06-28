@@ -1,5 +1,38 @@
 
 <h2>釣果投稿一覧</h2>
+<div class='index-condition'>
+  <h3>検索条件<h3>
+  <script>
+    $(function(){
+      $('.dropdown-menu a').click(function(){
+        //反映先の要素名を取得
+        var visibleTag = $(this).parents('ul').attr('visibleTag');
+        var hiddenTag = $(this).parents('ul').attr('hiddenTag');
+        //選択された内容でボタンの表示を変える
+        $(visibleTag).val($(this).attr('value'));
+        //選択された内容でhidden項目の値を変える
+        $(hiddenTag).val($(this).attr('id'));
+      })
+    })
+  </script>
+  <%= form_tag('/posts/search', method: :post) do %>
+    <div class="input-group">
+      <span class="input-group-addon">魚種</span>
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" aria-expanded="false" data-toggle="dropdown"><span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" hiddenTag="#hiddenValue_fish_id" visibleTag="#visibleValue_fish_id">
+          <%@fishes.each do |fish|%>
+          <li><a href="javascript:void(0)" id="<%=fish.id%>" value=<%=fish.name%>><%=fish.name%></a></li>
+          <%end%>
+        </ul>
+        <input name="fish_id" type="hidden" id="hiddenValue_fish_id" value="">
+      </span>
+      <input id="visibleValue_fish_id" class="form-control" readonly="readonly">
+    </div>
+    <br>
+    <input class="btn btn-default" type="submit" value="検索">
+  <%end%>
+</div>
 <div class="index-content">
   <%post_count=0%>
   <%@posts.each do |post|%>
