@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     @posts = Post.order('datetime DESC')
     @fishes = Fish.all
     @lures = Lure.all
+    @points = Point.all
   end
 
   def search
@@ -17,6 +18,7 @@ class PostsController < ApplicationController
     @posts = @posts.order('datetime DESC')
     @fishes = Fish.all
     @lures = Lure.all
+    @points = Point.all
     render('posts/index')
   end
 
@@ -29,6 +31,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @fishes = Fish.all
     @lures = Lure.all
+    @points = Point.all
   end
 
   def create
@@ -38,7 +41,7 @@ class PostsController < ApplicationController
     @post.fish_id = params[:fish_id].to_i
     @post.size_millimeter = params[:size_centimeter].to_f * 10
     @post.weight_gram = params[:weight_gram].to_i
-    @post.place = params[:place]
+    @post.point_id = params[:point_id].to_i
     # @post.image_name = params[:image_name]
     @post.image = params[:image]
     @post.lure_id = params[:lure_id].to_i
