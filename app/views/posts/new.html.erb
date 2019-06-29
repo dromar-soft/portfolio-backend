@@ -71,18 +71,17 @@
   </div>
   <br>
   <div class="input-group">
-    <span class="input-group-addon">メソッド</span>
+    <span class="input-group-addon">ヒットルアー</span>
     <span class="input-group-btn">
       <button type="button" class="btn btn-default dropdown-toggle" aria-expanded="false" data-toggle="dropdown"><span class="caret"></span></button>
       <ul class="dropdown-menu" role="menu" hiddenTag="#hiddenValue_method" visibleTag="#visibleValue_method">
-        <li><a href="javascript:void(0)" id="1" value="クランクベイト">クランクベイト</a></li>
-        <li><a href="javascript:void(0)" id="2" value="スピナーベイト">スピナーベイト</a></li>
-        <li><a href="javascript:void(0)" id="3" value="ミノー">ミノー</a></li>
-        <li><a href="javascript:void(0)" id="4" value="バイブレーション">バイブレーション</a></li>
+        <%@lures.each do |lure|%>
+        <li><a href="javascript:void(0)" id="<%=lure.id%>" value=<%=lure.name%>><%=lure.name%></a></li>
+        <%end%>
       </ul>
-      <input name="method_id" type="hidden" id="hiddenValue_method" value="">
+      <input name="lure_id" type="hidden" id="hiddenValue_method" value="<%=@post.lure_id%>">
     </span>
-    <input name="method" id="visibleValue_method" class="form-control" value="<%=@post.method%>">
+    <input name="lure_name" id="visibleValue_method" class="form-control" value="">
   </div>
   <br>
   <input class="btn btn-default" type="submit" value="投稿">

@@ -23,6 +23,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @fishes = Fish.all
+    @lures = Lure.all
   end
 
   def create
@@ -35,7 +36,7 @@ class PostsController < ApplicationController
     @post.place = params[:place]
     # @post.image_name = params[:image_name]
     @post.image = params[:image]
-    @post.method = params[:method]
+    @post.lure_id = params[:lure_id].to_i
     @post.user_id = @current_user.id
     if @post.save
       flash[:notice] = '投稿完了!'
