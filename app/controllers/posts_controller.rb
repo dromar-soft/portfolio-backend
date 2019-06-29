@@ -12,9 +12,9 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.all
-    @posts = Post.where(fish_id: params[:fish_id].to_i) if params[:fish_id].present?
-    @posts = Post.where(lure_id: params[:lure_id].to_i) if params[:lure_id].present?
-    @posts.order('datetime DESC')
+    @posts = @posts.where(fish_id: params[:fish_id].to_i) if params[:fish_id].present?
+    @posts = @posts.where(lure_id: params[:lure_id].to_i) if params[:lure_id].present?
+    @posts = @posts.order('datetime DESC')
     @fishes = Fish.all
     @lures = Lure.all
     render('posts/index')
