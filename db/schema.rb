@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_28_105524) do
+ActiveRecord::Schema.define(version: 2019_06_29_003251) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 2019_06_28_105524) do
 
   create_table "lure_types", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lures", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+    t.string "image_name"
+    t.integer "brand_id"
+    t.integer "lure_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
