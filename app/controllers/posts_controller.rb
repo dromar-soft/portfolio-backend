@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     @posts = @posts.where(fish_id: params[:fish_id].to_i) if params[:fish_id].present?
     @posts = @posts.where(lure_id: params[:lure_id].to_i) if params[:lure_id].present?
+    @posts = @posts.where(point_id: params[:point_id].to_i) if params[:point_id].present?
     @posts = @posts.order('datetime DESC')
     @fishes = Fish.all
     @lures = Lure.all
