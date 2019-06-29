@@ -2,5 +2,6 @@
 
 # Field model Class
 class Field < ApplicationRecord
+  has_many :points
   validates :name, presence: true
 end
