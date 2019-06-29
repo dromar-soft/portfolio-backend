@@ -7,11 +7,16 @@ class PostsController < ApplicationController
   def index
     @posts = Post.order('datetime DESC')
     @fishes = Fish.all
+    @lures = Lure.all
   end
 
   def search
-    @posts = Post.where(fish_id: params[:fish_id].to_i).order('datetime DESC')
+    @posts = Post.all
+    @posts = @posts.where(fish_id: params[:fish_id].to_i) if params[:fish_id].present?
+    @posts = @posts.where(lure_id: params[:lure_id].to_i) if params[:lure_id].present?
+    @posts = @posts.order('datetime DESC')
     @fishes = Fish.all
+    @lures = Lure.all
     render('posts/index')
   end
 
@@ -23,6 +28,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @fishes = Fish.all
+    @lures = Lure.all
   end
 
   def create
@@ -35,7 +41,7 @@ class PostsController < ApplicationController
     @post.place = params[:place]
     # @post.image_name = params[:image_name]
     @post.image = params[:image]
-    @post.method = params[:method]
+    @post.lure_id = params[:lure_id].to_i
     @post.user_id = @current_user.id
     if @post.save
       flash[:notice] = '投稿完了!'

@@ -2,6 +2,7 @@
 
 # Post model class
 class Post < ApplicationRecord
+  belongs_to :lure
   validates :datetime, presence: true
   validates :fish_id, presence: true
   validates :place, presence: true

@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_23_041802) do
+ActiveRecord::Schema.define(version: 2019_06_29_042410) do
+
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "fish", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lure_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lures", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+    t.string "image_name"
+    t.integer "brand_id"
+    t.integer "lure_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,11 +48,12 @@ ActiveRecord::Schema.define(version: 2019_06_23_041802) do
     t.integer "weight_gram"
     t.string "place"
     t.string "image_name"
-    t.string "method"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "image_data"
+    t.integer "lure_id"
+    t.index ["lure_id"], name: "index_posts_on_lure_id"
   end
 
   create_table "users", force: :cascade do |t|
