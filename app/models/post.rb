@@ -23,4 +23,13 @@ class Post < ApplicationRecord
 
     fish.name
   end
+
+  def common_field_posts
+    same_field_points = Point.where(field_id: point.field_id)
+    point_ids = []
+    same_field_points.each do |point|
+      point_ids.push(point.id)
+    end
+    Post.where(point_id: point_ids).where.not(id: id)
+  end
 end

@@ -25,6 +25,7 @@ class PostsController < ApplicationController
 
   def detail
     @post = Post.find_by(id: params[:id])
+    @associated_posts = @post.common_field_posts
     redirect_to('/posts/index') unless @post
   end
 
