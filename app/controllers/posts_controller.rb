@@ -8,15 +8,18 @@ class PostsController < ApplicationController
     @posts = Post.order('datetime DESC')
     @fishes = Fish.all
     @lures = Lure.all
+    @points = Point.all
   end
 
   def search
     @posts = Post.all
-    @posts = @posts.where(fish_id: params[:fish_id].to_i) if params[:fish_id].present?
-    @posts = @posts.where(lure_id: params[:lure_id].to_i) if params[:lure_id].present?
+    @posts = filter(@posts, 'fish_id', params[:fish_id])
+    @posts = filter(@posts, 'lure_id', params[:lure_id])
+    @posts = filter(@posts, 'point_id', params[:point_id])
     @posts = @posts.order('datetime DESC')
     @fishes = Fish.all
     @lures = Lure.all
+    @points = Point.all
     render('posts/index')
   end
 
@@ -29,6 +32,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @fishes = Fish.all
     @lures = Lure.all
+    @points = Point.all
   end
 
   def create
@@ -38,7 +42,7 @@ class PostsController < ApplicationController
     @post.fish_id = params[:fish_id].to_i
     @post.size_millimeter = params[:size_centimeter].to_f * 10
     @post.weight_gram = params[:weight_gram].to_i
-    @post.place = params[:place]
+    @post.point_id = params[:point_id].to_i
     # @post.image_name = params[:image_name]
     @post.image = params[:image]
     @post.lure_id = params[:lure_id].to_i
@@ -54,5 +58,13 @@ class PostsController < ApplicationController
   def datetime_parse_str(str)
     return if str.empty?
     Time.zone.parse(params[:datetime]) # DateTime.parseだと、config/application.rbのタイムゾーン設定が無視される
+  end
+
+  def filter(posts, sym, id_str)
+    if id_str.empty?
+      posts
+    else
+      posts&.where("#{sym} = #{id_str}")
+    end
   end
 end

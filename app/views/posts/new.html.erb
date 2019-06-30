@@ -61,7 +61,16 @@
   <br>
   <div class="input-group">
     <span class="input-group-addon">場所</span>
-    <input name="place" class="form-control" value="<%=@post.place%>">
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-default dropdown-toggle" aria-expanded="false" data-toggle="dropdown"><span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu" hiddenTag="#hiddenValue_point" visibleTag="#visibleValue_point">
+        <%@points.each do |point|%>
+        <li><a href="javascript:void(0)" id="<%=point.id%>" value=<%=point.name%>><%=point.name%></a></li>
+        <%end%>
+      </ul>
+      <input name="point_id" type="hidden" id="hiddenValue_point" value="<%=@post.point_id%>">
+    </span>
+    <input name="point_name" id="visibleValue_point" class="form-control" value="">
   </div>
   <br>
   <div class="input-group">
@@ -74,14 +83,14 @@
     <span class="input-group-addon">ヒットルアー</span>
     <span class="input-group-btn">
       <button type="button" class="btn btn-default dropdown-toggle" aria-expanded="false" data-toggle="dropdown"><span class="caret"></span></button>
-      <ul class="dropdown-menu" role="menu" hiddenTag="#hiddenValue_method" visibleTag="#visibleValue_method">
+      <ul class="dropdown-menu" role="menu" hiddenTag="#hiddenValue_lure" visibleTag="#visibleValue_lure">
         <%@lures.each do |lure|%>
         <li><a href="javascript:void(0)" id="<%=lure.id%>" value=<%=lure.name%>><%=lure.name%></a></li>
         <%end%>
       </ul>
-      <input name="lure_id" type="hidden" id="hiddenValue_method" value="<%=@post.lure_id%>">
+      <input name="lure_id" type="hidden" id="hiddenValue_lure" value="<%=@post.lure_id%>">
     </span>
-    <input name="lure_name" id="visibleValue_method" class="form-control" value="">
+    <input name="lure_name" id="visibleValue_lure" class="form-control" value="">
   </div>
   <br>
   <input class="btn btn-default" type="submit" value="投稿">

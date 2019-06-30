@@ -42,6 +42,19 @@
       </span>
       <input id="visibleValue_lure_id" class="form-control" readonly="readonly">
     </div>
+    <div class="input-group">
+      <span class="input-group-addon">場所</span>
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" aria-expanded="false" data-toggle="dropdown"><span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" hiddenTag="#hiddenValue_point_id" visibleTag="#visibleValue_point_id">
+          <%@points.each do |point|%>
+          <li><a href="javascript:void(0)" id="<%=point.id%>" value=<%=point.fullname%>><%=point.fullname%></a></li>
+          <%end%>
+        </ul>
+        <input name="point_id" type="hidden" id="hiddenValue_point_id" value="">
+      </span>
+      <input id="visibleValue_point_id" class="form-control" readonly="readonly">
+    </div>
     <br>
     <input class="btn btn-default" type="submit" value="検索">
   <%end%>
@@ -57,10 +70,9 @@
         <img src=<%=post.image_url%>>
         <p><%=post.fish_name%></p>
         <p><%=post.datetime%></p>
-        <p><%=post.place%></p>
         <p><%=post.size_centimeter%></p>
         <p><%=post.weight_gram%></p>
-        <p><%=post.place%></p>
+        <p><%=post.point.fullname%></p>
         <p><%=post.image_name%></p>
         <p><%=post.lure.name%></p>
         <p><%=post.user_id%></p>

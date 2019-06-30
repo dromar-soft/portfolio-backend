@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_29_042410) do
+ActiveRecord::Schema.define(version: 2019_06_29_082721) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
     t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fields", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,19 +47,29 @@ ActiveRecord::Schema.define(version: 2019_06_29_042410) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "points", force: :cascade do |t|
+    t.string "name"
+    t.integer "field_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.datetime "datetime"
     t.integer "fish_id"
     t.integer "size_millimeter"
     t.integer "weight_gram"
-    t.string "place"
     t.string "image_name"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "image_data"
     t.integer "lure_id"
+    t.integer "point_id"
     t.index ["lure_id"], name: "index_posts_on_lure_id"
+    t.index ["point_id"], name: "index_posts_on_point_id"
   end
 
   create_table "users", force: :cascade do |t|
